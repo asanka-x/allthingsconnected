@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "allthingsconnected",
-  "homepage": "https://asankan.info",
+  "homepage": "https://blog.asankan.info",
   "twitter": "asankanissanka",
   "repository": "https://github.com/asanka-x/allthingsconnected.git",
   "scripts": {
@@ -15,7 +15,7 @@
     "deploy": "./scripts/deploy.sh"
   },
   "phenomic": {
-    "CNAME": false
+    "CNAME": true
   },
   "#babel": "webpack-(development|production) are useful for webpack 2, otherwise use development|production",
   "babel": {
