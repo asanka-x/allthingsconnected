@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '5'
+  - '4'
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: ./scripts/deploy.sh
+  'on':
+    branch: master
+    node: '5'
+env:
+  global:
+    - secure: >-
+        EFQfJ9YoPE9dKMG/ISJTQX7aoudRQWBg1BxB/HIRMj32Cglq550GlgMvdCTrxAybgqQm2CMgt5eBqtxT72kU4b8X1oZod7AKV7MjjxXeCedQii2B1mtNSFNaUeY0eNrvb1XABaME62IHR/MY7i9OXkLS2A8jGRZ/9velhaks8pKWPYQP0R/IJGcvONyjY7lRJXI0fDFVbW4NRdugReLUYkoshrgbwmHxmsu+Crh6S95UhpJcLrA4cUA1g+L6yKflLKHO1fdkck7S2iNQ97c3mg0ein2Vv5xrapk48a1tELRgHVyRo7KgeOz79+zW/zDUqjfGZAvOLGvv5OhJY7LV9ME5x6cwzH1XCxkB9Fy2S4lsbAzLfyI3mBbcvZNh3CyYb/85VJEYyDRvsHcBpWy1KmVo35saNb99G/klVZgWVV2AoCTBzuYv/YeD6yAk/w6DRKf/9Z+uTmL4gI+zCbh3IPT+N5ww5cnA4M8MqTFxRdoCjysL0YYLbFttN3KbOJ4S9nRXOxcK5ylQ5vw43/a0DCPlXQfGzdWzwuSVelkk45izQRKQZAndOk2ro1Y98wAqA3HxObyJcrwFVLEasu3Izokx9+Hi0SYh7XTQIDtwla1a1j2x7uNyAB1S4UFt77fyf/+nxHRpfpUeX/1/4pSQYfWsEvujKQ8IQkNCPQuzPbo=
+    - GIT_DEPLOY_REPO=https://$GITHUB_TOKEN@github.com/asanka-x/allthingsconnected.git
