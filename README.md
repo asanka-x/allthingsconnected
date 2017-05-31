@@ -1,4 +1,6 @@
-# [Phenomic](https://github.com/MoOx/phenomic) phenomic-theme-base
+# [All Things Connected Blog](https://asankan.info)
+
+[![Build Status](https://travis-ci.org/asanka-x/allthingsconnected.svg?branch=master)](https://travis-ci.org/asanka-x/allthingsconnected)
 
 ## Install dependencies
 
