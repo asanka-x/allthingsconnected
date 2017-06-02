@@ -5,18 +5,7 @@ layout: Post
 tags: ["Architectures","clouddesignpatterns","distributed","firebase","queue","tasks","Tutorials","workflow"]
 ---
 
-<div class="page" title="Page 1">
-<div class="section">
-<div class="layoutArea">
-<div class="column">This is an implementation of [Pipes and Filter Pattern](https://msdn.microsoft.com/en-us/library/dn568100.aspx) which is a commonly used [Cloud Design Pattern](https://msdn.microsoft.com/en-us/library/dn568099.aspx). The most common approach to implement this pattern is via multiple queues as shown in the following figure.</div>
-</div>
-</div>
-</div>
-<div class="column"></div>
-<div class="page" title="Page 1">
-<div class="section">
-<div class="layoutArea">
-<div class="column">
+This is an implementation of [Pipes and Filter Pattern](https://msdn.microsoft.com/en-us/library/dn568100.aspx) which is a commonly used [Cloud Design Pattern](https://msdn.microsoft.com/en-us/library/dn568099.aspx). The most common approach to implement this pattern is via multiple queues as shown in the following figure.
 
 <p align="center">
   <img src="http://blog.asankan.info/assets/2016-08-23-processing-multi-stage-tasks-using-firebase-queue/ic709558.png">
