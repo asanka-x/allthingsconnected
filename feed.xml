@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[allthingsconnected]]></title><description><![CDATA[allthingsconnected]]></description><link>https://blog.asankan.info</link><generator>RSS for Node</generator><lastBuildDate>Sat, 17 Jun 2017 05:09:54 GMT</lastBuildDate><atom:link href="https://blog.asankan.info/feed.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[Brand, Product and Loyalty]]></title><description><![CDATA[<h1 id="brand-product-and-loyalty"><a href="#brand-product-and-loyalty" class="phenomic-HeadingAnchor">#</a>Brand, Product and Loyalty</h1>
+<p>Brand and Product are not the same thing. A product is made by a company and can be purchased by a consumer in exchange for money. But a brand is a collection of perceptions in the mind of the consumer. It is a promise or covenant between the company and the consumer that a certain experience or set of benefits will follow when the brand is used. </p>
+<p>Building a brand is hard compared to building the product. In the journey of building a brand, Social media and user communities plays a major and very critical role. The success of brand now depends on what the community talks about it. So it’s a critical fact to carefully manage and listen to these contents that published in different channels. One small mistake is enough to take down a business. In order to do the branding correctly, it is important to understand the purpose of it first. According to De Chernatony and McDonald (1994), the purpose of branding is to facilitate the circumstances for gaining loyal consumers and retaining them with acceptable cost with the goal of accelerating return on investment. Brand loyalty defines how much a consumer is  attached to a brand. Once he/she attached to it, they will spread the word about the it within the community and that message has a larger impact compared to a message from the brand itself. So the loyal customers have a big contribution towards the success of the brand and it’s important to keep their momentum of spreading the word and increase the size of the loyal community.</p>
+<p>Companies publish content to different social media channels and they are being followed and seen by different user communities. Some of the content receive negative feedback and some receive positive feedback from the community. Ones with negative feedbacks have different levels of impacts towards the brand and vice versa for ones with positive feedback. Perceptions of the community can’t be known until it is published, but however tracking feedbacks for the published contents can help with deciding on new content to be published. However within this broader audience there are loyals who not only look at the content but also spread the word about it. As mentioned above they are the key success factors of the brand. So it is with utmost importance to identify the loyals and ensure their continuous loyalty towards the brand.</p>
+]]></description><link>https://blog.asankan.info/posts/20170129-brand-product-and-loyalty/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20170129-brand-product-and-loyalty/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Sun, 29 Jan 2017 00:00:00 GMT</pubDate></item><item><title><![CDATA[Amazon Web Services 101]]></title><description><![CDATA[<h1 id="amazon-web-services-101"><a href="#amazon-web-services-101" class="phenomic-HeadingAnchor">#</a>Amazon Web Services 101</h1>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/9OFzUTeOicIZN5" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/asankanissanka/amazon-web-services-101" title="Amazon Web Services 101" target="_blank">Amazon Web Services 101</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/asankanissanka">Asanka Nissanka</a></strong> </div>
+<h2 id="comments"><a href="#comments" class="phenomic-HeadingAnchor">#</a>Comments</h2>
+<p><strong><a href="#286" title="2017-01-11 15:46:21">Ronnie Harrison</a>:</strong> Great informative video on Amazon Web Services! Satisfied client here.</p>
+<p><strong><a href="#287" title="2017-01-11 16:06:29">Asanka</a>:</strong> Thank you Ronnie, Glad you liked it.</p>
+]]></description><link>https://blog.asankan.info/posts/20161030-amazon-web-services-101/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20161030-amazon-web-services-101/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Sun, 30 Oct 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Processing Multi-Stage Tasks using Firebase Queue]]></title><description><![CDATA[<h1 id="processing-multi-stage-tasks-using-firebase-queue"><a href="#processing-multi-stage-tasks-using-firebase-queue" class="phenomic-HeadingAnchor">#</a>Processing Multi-Stage Tasks using Firebase Queue</h1>
+<p>This is an implementation of <a href="https://msdn.microsoft.com/en-us/library/dn568100.aspx">Pipes and Filter Pattern</a> which is a commonly used <a href="https://msdn.microsoft.com/en-us/library/dn568099.aspx">Cloud Design Pattern</a>. The most common approach to implement this pattern is via multiple queues as shown in the following figure.</p>
+<p><img src="https://asankanissanka.files.wordpress.com/2016/08/ic709558.png" alt="ic709558"></p>
+<h6 id="pipeline-using-multiple-queues-ref--msdn"><a href="#pipeline-using-multiple-queues-ref--msdn" class="phenomic-HeadingAnchor">#</a>Pipeline Using Multiple Queues (<a href="https://msdn.microsoft.com/en-us/library/dn568100.aspx">Ref : MSDN</a>)</h6>
+<p>The prosed solution here uses a bit different approach than above and use a single queue instead of multiple queues as shown below.</p>
+<p><img src="https://asankanissanka.files.wordpress.com/2016/08/data-flow-diagram.png" alt="Data Flow Diagram"></p>
+<h6 id="pipeline-using-a-single-queue"><a href="#pipeline-using-a-single-queue" class="phenomic-HeadingAnchor">#</a>Pipeline Using a Single Queue</h6>
+<p>To practically implement a solution like above the common approach would be to maintain a state for each queue message and assign a state for each workers(filters) to filter the messages accordingly before execution. However recently when I was trying out <a href="https://firebase.google.com/docs/database/">Firebase Realtime Database</a> I found <a href="https://github.com/firebase/firebase-queue">Firebase Queue</a> which is a queue implementation on top of the Firebase Realtime Database and it turned out that it comes with a out of the box solution for maintaining a state (their term is <a href="https://github.com/firebase/firebase-queue/blob/master/docs/guide.md#defining-specs-optional">specs</a>) for queue messages as described above. So I worked on a PoC to evaluate this and in my personal opinion it's really cool. But this is not enough to make a dicission so I was looking at various benefits we can achieve here with the usage of <a href="https://firebase.google.com/docs/database/">Firebase Realtime Database</a>.</p>
+<h3 id="benefits"><a href="#benefits" class="phenomic-HeadingAnchor">#</a>Benefits</h3>
+<ul>
+<li>Using firebase realtime behaviour we can easily show the progress of the running tasks on a front-end</li>
+<li>Since it's single queue it's less hazzle to implement and maintain</li>
+<li>Uses push instead of polling to notify workers about new tasks</li>
+<li>Implementation has been made super easy with their library</li>
+<li>Nicely support to be run in a clustered environment distributing workload among nodes</li>
+</ul>
+<h3 id="use-cases"><a href="#use-cases" class="phenomic-HeadingAnchor">#</a>Use Cases</h3>
+<ul>
+<li>In scenarios where REST APIs facilitate time consuming processing heavy back­end functions</li>
+<li>In scenarios where triggered background tasks run for streaming data</li>
+</ul>
+]]></description><link>https://blog.asankan.info/posts/20160823-processing-multi-stage-tasks-using-firebase-queue/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20160823-processing-multi-stage-tasks-using-firebase-queue/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Tue, 23 Aug 2016 00:00:00 GMT</pubDate></item><item><title><![CDATA[Hybrid Application Life-cycle Management]]></title><description><![CDATA[<h1 id="hybrid-application-life-cycle-management"><a href="#hybrid-application-life-cycle-management" class="phenomic-HeadingAnchor">#</a>Hybrid Application Life-cycle Management</h1>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/r9izZVuF764Cxd" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/asankanissanka/hybrid-application-life-cycle-management" title="Hybrid application life cycle management" target="_blank">Hybrid application life cycle management</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/asankanissanka">Asanka Nissanka</a></strong> </div>
+]]></description><link>https://blog.asankan.info/posts/20150810-hybrid-application-life-cycle-management/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20150810-hybrid-application-life-cycle-management/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Mon, 10 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Get Started with AWS]]></title><description><![CDATA[<h1 id="get-started-with-aws"><a href="#get-started-with-aws" class="phenomic-HeadingAnchor">#</a>Get Started with AWS</h1>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/nsq4J3IdCevTSX" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/asankanissanka/get-started-with-aws" title="Get Started with AWS" target="_blank">Get Started with AWS</a> </strong> from <strong><a target="_blank" href="https://www.slideshare.net/asankanissanka">Asanka Nissanka</a></strong> </div>
+]]></description><link>https://blog.asankan.info/posts/20150810-get-started-with-aws/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20150810-get-started-with-aws/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Mon, 10 Aug 2015 00:00:00 GMT</pubDate></item><item><title><![CDATA[Android Wireless Debugging]]></title><description><![CDATA[<h1 id="android-wireless-debugging"><a href="#android-wireless-debugging" class="phenomic-HeadingAnchor">#</a>Android Wireless Debugging</h1>
+<p>If you are a mobile app developer, you surely have noticed that it's a burden to debug having connected your device via a USB cable. And it's a waste if your PC has only few USB ports. So anyways there is a cool solution for this. If both your PC and your android device are connected to a wireless network (should be in same network), you can debug your device wireless. <strong>Step 1</strong> Connect your device to your PC via a USB connection (Make sure USB debugging is on) <strong>Step 2</strong> Go to your android platform-tools directory and open a command window and run
+<br>
+<br>
+adb tcpip 5555
+               adb connect <Device IP>:5555</p>
+<p><strong>Step 3</strong> Disconnect USB connection. Now you can debug your device wireless, you can run "adb logcat" and check whether it's working. To switch back to USB run the following command
+<br>
+<br>
+adb usb</p>
+]]></description><link>https://blog.asankan.info/posts/20131115-android-debugging-over-lanwifi/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20131115-android-debugging-over-lanwifi/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Fri, 15 Nov 2013 00:00:00 GMT</pubDate></item><item><title><![CDATA[4+1 View Model]]></title><description><![CDATA[<h1 id="41-view-model"><a href="#41-view-model" class="phenomic-HeadingAnchor">#</a>4+1 View Model</h1>
+<p>Architecture of software-intensive system can be described using multiple, concurrent views. Based on this fact <a href="http://en.wikipedia.org/wiki/Philippe_Kruchten">Philipe Kruchten</a> developed a view model consists of 5 views, that a software architect can look at a system. But why is this called 4+1 view model rather 5 view model ? The obvious reason is unlike four views one view shows the systems functionality from the view point of the outside world.  </p>
+<p>Following figure shows the 5 views, how they are related to each other and the diagrams used to explain each view.</p>
+<p><img src="http://asankanissanka.files.wordpress.com/2013/03/uml41.gif?w=300"></p>
+<p><strong>Logical View</strong></p>
+<p>**<br>
+**</p>
+<ul>
+<li>Shows the parts that compromise the systems</li>
+<li>Represent a set of abstraction</li>
+<li>Emphasizes classes and objects</li>
+</ul>
+<p><strong>UML diagrams used</strong></p>
+<p>        Class diagram<br>
+State diagram<br>
+Object diagram</p>
+<p><strong>Process View</strong></p>
+<ul>
+<li>Describes system processes</li>
+</ul>
+<p><strong>UML diagrams used</strong></p>
+<p>        Activity diagram</p>
+<p>        Sequence diagram</p>
+<p>        Communication diagram</p>
+<p><strong>Implementation View (Development View)</strong></p>
+<p>**<br>
+**</p>
+<ul>
+<li>Illustrates a system from a programmer's perspective</li>
+</ul>
+<p><strong>UML diagrams used</strong></p>
+<p>         Component diagram</p>
+<p><strong>Deployment View (Physical View)</strong></p>
+<p>**<br>
+**</p>
+<ul>
+<li>Illustrates system execution environment</li>
+<li>Maps software artifacts to hardware that hosts them</li>
+</ul>
+<p><strong>UML diagrams used</strong></p>
+<p>         Deployment diagram</p>
+<p><strong>Use Case View</strong></p>
+<p>**<br>
+**</p>
+<ul>
+<li>Illustrates system functionality</li>
+<li>Captures user goals and scenarios</li>
+<li>Helpful in defining the structure and functionality in other 4 views</li>
+</ul>
+<p><strong>UML diagrams used</strong></p>
+<p>        Use case diagram</p>
+<p>**<br>
+**</p>
+<p>**<br>
+**</p>
+<p>**<br>
+**</p>
+<h2 id="comments"><a href="#comments" class="phenomic-HeadingAnchor">#</a>Comments</h2>
+<p><strong><a href="#15" title="2013-06-04 13:03:24">marketing</a>:</strong> Hey, thanks for the blog.Much thanks again. Awesome.</p>
+<p><strong><a href="#16" title="2013-06-04 17:21:33">asankanissanka</a>:</strong> Thanks for the feedback..:)</p>
+<p><strong><a href="#17" title="2013-06-12 20:40:42">cheap vps hosting</a>:</strong> Interesting blog post. A few things i would like to add is that computer system memory needs to be purchased when your computer cannot cope with anything you do along with it. One can set up two RAM boards with 1GB each, by way of example, but not one of 1GB and one having 2GB. One should make sure the car maker's documentation for own PC to make certain what type of memory is required.</p>
+<p><strong><a href="#18" title="2013-06-19 19:40:21">cheap social bookmarks</a>:</strong> v7Deye Im obliged for the blog article.Thanks Again. Awesome.</p>
+<p><strong><a href="#19" title="2013-07-23 19:09:06">buy cialis online cheap</a>:</strong> Major thankies for the post.Really thank you!</p>
+<p><strong><a href="#20" title="2013-07-24 16:14:54">click here</a>:</strong> Thanks for sharing, this is a fantastic article.Much thanks again. Will read on...</p>
+<p><strong><a href="#21" title="2013-07-25 18:28:12">buy cialis online cheap</a>:</strong> Thanks-a-mundo for the article.Thanks Again. Cool.</p>
+<p><strong><a href="#22" title="2013-07-26 08:29:18">news</a>:</strong> ptAYPN Thank you ever so for you article post.Much thanks again. Awesome.</p>
+<p><strong><a href="#23" title="2013-08-01 09:13:16">amazing news</a>:</strong> FRlySz Major thankies for the blog article.Much thanks again.</p>
+<p><strong><a href="#24" title="2013-08-02 15:35:29">best news</a>:</strong> Very good article post.Really looking forward to read more. Keep writing.</p>
+<p><strong><a href="#25" title="2013-08-02 20:30:49">best news</a>:</strong> WvA9gi This is one awesome post.Really looking forward to read more. Really Cool.</p>
+<p><strong><a href="#26" title="2013-08-19 20:07:33">awesome links for you</a>:</strong> Q9RZuH Great article.Much thanks again. Will read on...</p>
+<p><strong><a href="#27" title="2013-08-20 05:16:27">awesome links for you</a>:</strong> omESYM This is one awesome article post.Really thank you! Keep writing.</p>
+]]></description><link>https://blog.asankan.info/posts/20130331-41-view-model/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20130331-41-view-model/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Sun, 31 Mar 2013 00:00:00 GMT</pubDate></item><item><title><![CDATA[Useful GNU/Linux commands]]></title><description><![CDATA[<h1 id="useful-gnulinux-commands"><a href="#useful-gnulinux-commands" class="phenomic-HeadingAnchor">#</a>Useful GNU/Linux commands</h1>
+<p><strong>To find groups that a user belong</strong> **               <strong>~$ id -nG <em>        Output</em> group1 group2 group3 </strong>To remove user from a particular group** Ex :- To remove above user from group1 </p>
+<p>              ~$ usermod -G group2,group3</p>
+<p><strong>To unlock dpkg</strong> ~$ sudo fuser -vki /var/lib/dpkg/lock ~$ sudo dpkg --configure -a <strong> **</strong> *<strong>*Connect to Amazon EC2 instance via terminal</strong> <strong> **</strong>            **  ~$ ssh -i username@public-dns </p>
+<hr>
+]]></description><link>https://blog.asankan.info/posts/20130208-useful-gnulinux-commands/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20130208-useful-gnulinux-commands/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Fri, 08 Feb 2013 00:00:00 GMT</pubDate></item><item><title><![CDATA[CI vs CD vs CD]]></title><description><![CDATA[<h1 id="ci-vs-cd-vs-cd"><a href="#ci-vs-cd-vs-cd" class="phenomic-HeadingAnchor">#</a>CI vs CD vs CD</h1>
+<p>That said, to judge by the Humble/Farley book the distinction between Continuous Delivery and Continuous Deployment is just a little blurred. The authors acknowledge that continuous deployment into production is not always a good idea. They also imply that Continuous Deployment might mean only that your application is always ready and easy to deploy into production, not that you necessarily deploy it constantly:</p>
+<blockquote>
+<p>Your implementation should make it possible to deploy any version of your application that has made it past the automated tests into any of your environments at the push of a button, given the correct credentials.</p>
+</blockquote>
+<p>Compliance and security are also factors that may rightly make it impossible to automate deployment to production completely.</p>
+<p>Client-installed applications present some special difficulties which Humble and Farley discuss.</p>
+<p>In summary then:</p>
+<p><strong>Continuous integration</strong>: your application always builds and passes its tests, including all the pieces from different sub-teams.</p>
+<p><strong>Continuous delivery</strong>: your application always builds and deploys to a test environment and passes its tests.</p>
+<p><strong>Continuous deployment</strong>: your application is always ready to deploy to production through a largely automated process.</p>
+<p><strong>Update</strong>: I received an email from Martin Fowler about this post. He refers to Jez Humble’s post on <a href="http://continuousdelivery.com/2010/08/continuous-delivery-vs-continuous-deployment/">Continuous Delivery vs Continous Deployment</a> and adds:</p>
+<blockquote>
+<p>- I would use your definition of Continuous Deployment for Continuous Delivery</p>
+<p>- I would change the definition of Continuous Deployment to say something like "every good build is released to production"</p>
+</blockquote>
+<h2 id="comments"><a href="#comments" class="phenomic-HeadingAnchor">#</a>Comments</h2>
+<p><strong><a href="#28" title="2013-07-24 22:35:18">http://camdentonteaparty.org</a>:</strong> The following blog post, “CI vs CD vs CD | Asanka's Blog...” indicates the fact that u comprehend what precisely you are communicating about! I actually entirely agree with your post. Many thanks ,Roseanne</p>
+<p><strong><a href="#29" title="2013-08-07 15:20:47">Massage</a>:</strong> Thanks so much for the blog article. Fantastic.</p>
+<p><strong><a href="#30" title="2013-08-10 03:58:25">Daniel Beaulieu</a>:</strong> <strong>Daniel Beaulieu...</strong> I value the blog article.Really thank you!...</p>
+<p><strong><a href="#31" title="2013-08-15 08:21:06">Massage</a>:</strong> A spherical of applause for your blog post. Amazing.</p>
+]]></description><link>https://blog.asankan.info/posts/20130123-ci-vs-cd-vs-cd/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20130123-ci-vs-cd-vs-cd/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Wed, 23 Jan 2013 00:00:00 GMT</pubDate></item><item><title><![CDATA[Install an external jar into local Maven repository]]></title><description><![CDATA[<h1 id="install-an-external-jar-into-local-maven-repository"><a href="#install-an-external-jar-into-local-maven-repository" class="phenomic-HeadingAnchor">#</a>Install an external jar into local Maven repository</h1>
+<h2 id=""></h2>
+<p>Sometimes, you project will have dependency on a jar which is not in official maven repository, and maybe it is propriety jar file which will never be part of maven repository. In this case, you have to put it to your local repository your self to solve the dependency.</p>
+<p>There is a install plug in to do this job, which is something like:
+<br>
+<br>
+mvn install:install-file -DgroupId=<br>
+-DartifactId=<br>
+-Dversion=<br>
+-Dfile=<br>
+-Dpackaging=jar
+-DgeneratePom=true</p>
+<p>For example, you want to install the danga’s memcached client plugin, you can do:
+<br>
+<br>
+mvn install:install-file -DgroupId=com.danga
+-DartifactId=memcached
+-Dversion=2.0.1
+-Dfile=java_memcached-release_2.0.1.jar
+-Dpackaging=jar
+-DgeneratePom=true</p>
+<p>This will add the memcache jar into your local Maven2 repository under groupId com.danga and artifactId memcached, you can then edit your pom.xml adding this dependency.</p>
+<p>However, the maven eclipse can not recognize it since it always search from public repository.</p>
+<h2 id="comments"><a href="#comments" class="phenomic-HeadingAnchor">#</a>Comments</h2>
+<p><strong><a href="#32" title="2013-06-04 09:39:19">traffic</a>:</strong> Thank you ever so for you post.Much thanks again. Cool.</p>
+<p><strong><a href="#33" title="2013-06-11 17:42:01">space jam jordans for sale</a>:</strong> “I expect that the design of the OS will be much more minimal and cleaner with most, if not all, of the skeuomorphism gone from the OS. There will be additional functionality as new APIs are incorporated into the release, but the focus will be on the look and feel of the user experience,” Baker said.</p>
+<p><strong><a href="#34" title="2013-08-08 22:05:47">abercrombie</a>:</strong> Install an external jar into local Maven repository | Asanka's Blog... <a href="http://2013abercrombiekids.webs.com/http://2013abercrombiefitch.webs.com/">abercrombie femme</a></p>
+]]></description><link>https://blog.asankan.info/posts/20130116-install-an-external-jar-into-local-maven-repository/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20130116-install-an-external-jar-into-local-maven-repository/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Wed, 16 Jan 2013 00:00:00 GMT</pubDate></item><item><title><![CDATA[What is Scrum ?]]></title><description><![CDATA[<h1 id="what-is-scrum-"><a href="#what-is-scrum-" class="phenomic-HeadingAnchor">#</a>What is Scrum ?</h1>
+<p><strong>Scrum</strong> is a process used for agile software development. With scrum, projects progress via a series of iterations called sprints. Each sprint is typically 2-4 weeks long and sprint planning is essential. Scrum is ideally suited for projects with rapidly changing or highly emergent requirements.</p>
+<h3 id="characteristics-of-scrum"><a href="#characteristics-of-scrum" class="phenomic-HeadingAnchor">#</a><strong>Characteristics of Scrum</strong></h3>
+<ul>
+<li>Self-organizing teams</li>
+<li>Product progresses in a series of month-long “Sprints”</li>
+<li>Requirements are captured as items in a list of “Product backlog”</li>
+<li>No specific engineering practices prescribed</li>
+<li>Uses generative rules to create an agile environment for delivering projects</li>
+</ul>
+<p><img src="http://asankanissanka.files.wordpress.com/2012/12/scrum1.png?w=300"></p>
+<h3 id="scrum-framework"><a href="#scrum-framework" class="phenomic-HeadingAnchor">#</a><strong>Scrum Framework</strong></h3>
+<p>Scrum is a simple framework which consists of<strong> 3 roles</strong>, <strong>4 ceremonies</strong> and <strong>3 artifacts</strong>.</p>
+<p>** **</p>
+<h4 id="roles"><a href="#roles" class="phenomic-HeadingAnchor">#</a>Roles</h4>
+<ul>
+<li><strong>Product owner</strong></li>
+</ul>
+<p>o   Defines the features of the product</p>
+<p>o   Decide on release date and content</p>
+<p>o   Responsible for the profitability of the product</p>
+<p>o   Prioritize features according to market share value</p>
+<p>o   Accept or reject work results</p>
+<ul>
+<li><strong>Scrum master</strong></li>
+</ul>
+<p>o   Represents management to the project.</p>
+<p>o   Responsible for enacting scrum values and practices.</p>
+<p>o   Ensure the team is fully functional and productive.</p>
+<p>o   Enable close cooperation across all roles and functions.</p>
+<p>o   Shield the team from external interferences.</p>
+<ul>
+<li><strong>Team</strong>     </li>
+</ul>
+<p>      o   Consists of 5-9 cross functional full-time members. That is there are programmers, testers, UI     designers.       o   Self-organizing </p>
+<p>                       ** **</p>
+<h4 id="ceremonies"><a href="#ceremonies" class="phenomic-HeadingAnchor">#</a><strong>Ceremonies</strong></h4>
+<p>** **</p>
+<ul>
+<li><strong>Sprint planning</strong></li>
+</ul>
+<p><em>Team selects items from the product backlog and create the sprint backlog. And the tasks are identified and estimated.</em></p>
+<ul>
+<li><strong>Sprint review</strong></li>
+</ul>
+<p><em>Conducts at the end of the sprint to demonstrate the functionality added during the sprint to the product owner or any users or other stakeholders.</em></p>
+<ul>
+<li><strong>Sprint retrospective</strong></li>
+</ul>
+<p><em>Whole team participate this meeting including the scrum master and the product owner and discuss on the team commitment, problems identified, velocity and suggest improvements to the next sprint.</em></p>
+<ul>
+<li><strong>Daily scrum meeting</strong></li>
+</ul>
+<p><em>Stand-up daily meeting time boxed for not more than 15 minutes with the team members to share what they worked on prior day and will work on today. This synchronize the work of the team.</em></p>
+<h4 id="artifacts"><a href="#artifacts" class="phenomic-HeadingAnchor">#</a><strong>Artifacts</strong></h4>
+<ul>
+<li>
+<p><strong>Product backlog</strong>
+<em>                                A list of all desired work on the project which is prioritized by the product owner.</em></p>
+</li>
+<li>
+<p><strong>Sprint backlog</strong>
+<em>                               A list of tasks the team need to perform in order to deliver the functionality they committed to deliver during the sprint. This is created by the team members at the sprint planning meeting. </em></p>
+</li>
+<li>
+<p><strong>Burndown charts </strong></p>
+</li>
+</ul>
+<p><em>                              Show the amount of work remaining either in a scrum sprint or a release. This is a very effective tool for determining at a glance whether a sprint or release is on schedule to have all planned work finished by desired date.</em></p>
+]]></description><link>https://blog.asankan.info/posts/20121231-what-is-scrum/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20121231-what-is-scrum/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Mon, 31 Dec 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Design Patterns]]></title><description><![CDATA[<h1 id="design-patterns"><a href="#design-patterns" class="phenomic-HeadingAnchor">#</a>Design Patterns</h1>
+<p>A <strong>pattern</strong> is a reusable solution that can be applied to commonly occurring problems in software design. Design patterns have three main benefits as in the following.</p>
+<ul>
+<li>Provide solid approaches to solving issues in software development using proven techniques. </li>
+<li>Usually reflects an out of box solution that can be adapted to suit our needs </li>
+<li>Helps with expressing larger solutions elegantly</li>
+</ul>
+<p>Design Patterns can be categorized in to three main categories as in the following.</p>
+<p><strong> Creational Patterns</strong> - <em>Based on the concept of creating an object</em>  </p>
+<p>_<br>
+_   </p>
+<p>o   Abstract Factory</p>
+<p>Creates an instance of several families of classes</p>
+<p>o   Factory Method</p>
+<p>Creates an instance of several derived classes</p>
+<p>o   Prototype</p>
+<p>A fully initialized instance to be copied or cloned</p>
+<p>o   Singleton</p>
+<p>A class of which only a single instance can exist </p>
+<p> <strong>Structural Patterns</strong> - <em>Based on the idea of building blocks of objects</em></p>
+<p>_<br>
+_</p>
+<p>o   Adapter</p>
+<p>Match interfaces of different classes</p>
+<p>o   Bridge</p>
+<p>Separates an object’s interface from its implementation</p>
+<p>o   Composite</p>
+<p>A tree structure of simple and composite objects</p>
+<p><strong>Behavioral Patterns</strong> - <em>Based on the way object play and work together</em></p>
+<p>_<br>
+_   </p>
+<p>o   Mediator</p>
+<p>Defines simplified communication between classes</p>
+<p>o   Observer</p>
+<p>A way of notifying change to a number of classes</p>
+<p>o   Template Method</p>
+<p>Defer the exact steps of an algorithm to a subclass</p>
+]]></description><link>https://blog.asankan.info/posts/20121231-design-patterns/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20121231-design-patterns/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Mon, 31 Dec 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[What is CAP theorem]]></title><description><![CDATA[<h1 id="what-is-cap-theorem"><a href="#what-is-cap-theorem" class="phenomic-HeadingAnchor">#</a>What is CAP theorem</h1>
+<p><img src="http://asankanissanka.files.wordpress.com/2012/12/8ed13-cap_diagram_distcopy.jpg"></p>
+<p>So what I am going to talk here might be a very basic thing, but the why I got mortivated to write this is while I was looking for what exactly CAP theorem is, I had First of all let's see why Eric Brewer introduced a theorem called CAP theorem, what mortivated him Consistency Availabity Partition Tolerance</p>
+]]></description><link>https://blog.asankan.info/posts/20121213-what-is-cap-theorem-2/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20121213-what-is-cap-theorem-2/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Thu, 13 Dec 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Scalability]]></title><description><![CDATA[<h1 id="scalability"><a href="#scalability" class="phenomic-HeadingAnchor">#</a>Scalability</h1>
+<p><img src="http://gpssystems.net/wp-content/uploads/2011/02/business-software-scalability.jpg"></p>
+<p><strong><br>
+**</strong>Scalability** is the ability of a system to increase the total throughput under an increased load when resources are added. And it can be measured using varoius dimentions. Such as  </p>
+<pre><code>        * Administrative scalability
+        * Fuctional scalability
+        * Geographic scalability
+        * Load scalability
+</code></pre>
+<p>The <strong>methods of adding more resources into a system</strong> fall into two broad categories</p>
+<ul>
+<li>
+<p><em>Horizontal Scaling (Scaling Out)</em></p>
+<ul>
+<li>Adding more nodes to a system</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://applicationarchitecture.files.wordpress.com/2010/06/f0028-horizontal-scalability-typical-scenario.png?w=652"></p>
+<ul>
+<li>
+<p><em>Vertical Scaling (Scaling Up)</em></p>
+<ul>
+<li>Adding more resources into a single node of a system</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://applicationarchitecture.files.wordpress.com/2010/06/f0029-horizontal-scalability-alternative-scenario.png?w=652"></p>
+<h2 id="comments"><a href="#comments" class="phenomic-HeadingAnchor">#</a>Comments</h2>
+<p><strong><a href="#35" title="2013-06-12 22:20:18">cheap vps host</a>:</strong> I am impressed with this site, very I am a big fan .</p>
+]]></description><link>https://blog.asankan.info/posts/20121213-scalability/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20121213-scalability/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Thu, 13 Dec 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Clean way to install Oracle JDK on ubuntu]]></title><description><![CDATA[<h1 id="clean-way-to-install-oracle-jdk-on-ubuntu"><a href="#clean-way-to-install-oracle-jdk-on-ubuntu" class="phenomic-HeadingAnchor">#</a>Clean way to install Oracle JDK on ubuntu</h1>
+<p>There are several ways to install JDK on linux and there are several JDK versions available for ubuntu. But as my personal choice I would prefer Oracle JDK the most.  </p>
+<p>Basically there are two main ways to install JDK on ubuntu<br>
+Download JDK linux package and install it<br>
+Add the repository containing oracle JDK packages and install using "apt-get"  </p>
+<p>I'll be focusing on the second method since it's a more clean way to install, that it will install the packages to the most suitable locations. Obviously we can install it to our preferred location following the first method but if we are configuring a production server it is recommended to follow the standard locations to which the JAVA like environments should be installing.  </p>
+<p>This is all you have to do (See this is simpler than the first method)  </p>
+<p>    sudo add-apt-repository ppa:webupd8team/java<br>
+sudo apt-get update<br>
+sudo apt-get install oracle-java7-installer</p>
+]]></description><link>https://blog.asankan.info/posts/20121211-clean-way-to-install-oracle-jdk-on-ubuntu/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20121211-clean-way-to-install-oracle-jdk-on-ubuntu/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Tue, 11 Dec 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[My Internship at 99x Technology]]></title><description><![CDATA[<h1 id="my-internship-at-99x-technology"><a href="#my-internship-at-99x-technology" class="phenomic-HeadingAnchor">#</a>My Internship at 99x Technology</h1>
+<p>I was a Java and open-source enthusiast and a geek when I was starting my internship. I never thought out of that scope. What I looked for was mostly to implement,code using the features provided by the frameworks and libraries, there the intention was to how ever deliver each and every features of the so called frameworks and libraries. So I was failing at delivering the true value of a solution.  </p>
+<p>Then I was hired by a company called <a href="http://www.99xtechnology.com/">99x Technology</a> which is a product engineering company. They had realized what my passion was and gave me a chance start my work with contributing an open-source framework called <a href="http://boilerplatejs.org/">BoilerplateJS</a>. It is a reference architecture built using JavaScript following the industry best practices. Well that's bit of technical stuff about it... What I wanted to imply here is that when working with this project under the supervision of <a href="http://www.hasith.net/">Hasith</a>,the technology manager of <a href="http://www.99xtechnology.com/">99x Technology</a>, I could learn lots of things. Among those what I cared the most is that when we designing a solution we should not think of it within the scope of a particular technology, framework or a library. When we designing this solution there were some scenarios to which we looked into. There we first decide the optimum solution and then looked for the technology which can cater that requirement, and the selection was not based on the number of features it has (Which is the main criteria of most of the people). So though out this project I could get exposed to some cutting edge technologies like <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">Advanced JavaScript</a>,<a href="http://requirejs.org/"> RequireJS</a>, <a href="http://knockoutjs.com/">KnockoutJS</a>, <a href="http://millermedeiros.github.com/crossroads.js/">Crossroads</a>, <a href="http://amplifyjs.com/">AmplifyJS</a>, <a href="http://jquery.com/">jQuery</a>, <a href="http://git-scm.com/">Git</a>, <a href="http://yui.github.com/yuidoc/">YUI Doc</a> and patterns like MVVM, Modular Pattern and AMD (Asynchronous Module Definition, which is a modern modular JavaScript design pattern).  </p>
+<p>Next I was given a chance to work on a customer project (I won't be sharing more details on this since they are confidential). There I was asked to build a wordpress plugin using PHP, and this was a totally different domain for me though I had worked with PHP. I could get some what of a exposure working with customers and I was guided and supervised throughout the project to achieve my targets by Samudra Kanankearachchi, Software Architect at <a href="http://www.99xtechnology.com/">99x Technology</a>. And I could successfully complete my work in that and deliver a product with value.  </p>
+<p>Then I joined with an internal project which was requested to be delivered within a short time period. With this project I could get the experience of working under a pressure. I think our team could reach the targets on time. And during this I got a chance to work on a separate domain, which is normally carried out by IM (Infrastructure Management) personnel. That is to configure a production web server running linux. I really enjoyed and put a considerable effort on this due to the lot's of configurations there.   </p>
+<p>Finally it's the end of the internship and I thought to write this blog post because I am totally satisfied about it and I can proudly say that I could make lot's of dots in my life during the stay at <a href="http://www.99xtechnology.com/">99x Technology</a>.</p>
+<h2 id="comments"><a href="#comments" class="phenomic-HeadingAnchor">#</a>Comments</h2>
+<p><strong><a href="#5" title="2012-11-02 14:16:57">Chanaka Dharmarathna</a>:</strong> Nice to hear that you have used some cutting edge technologies like KnockoutJS etc. as well as GIT VCS. Use these things again and again without bounding to one thing. Thats how you could add a value to you. All the best!</p>
+]]></description><link>https://blog.asankan.info/posts/20121102-my-internship-at-99x-technology/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20121102-my-internship-at-99x-technology/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Fri, 02 Nov 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Javascript Obfuscation]]></title><description><![CDATA[<h1 id="javascript-obfuscation"><a href="#javascript-obfuscation" class="phenomic-HeadingAnchor">#</a>Javascript Obfuscation</h1>
+<p>Obfuscation is a means of "obscuring" the real meaning and intent of your JavaScript code. Some sites use it as an obstacle to people who want to copy/borrow their code. Other sites use it as a means to hide the actual intention of the code.</p>
+<p>Some forms of obfuscation:</p>
+<ol>
+<li>Automatically renaming variables to short meaningless names to make the code less readable and harder to understand.</li>
+<li>Removing all extra white space and line breaks so the code is one giant long line.</li>
+<li>Making parts of the code self-generating so that a first pass of the code runs to create the actual code that then runs to carry out the intended operation.</li>
+<li>Uses character codes and string manipulation combined with eval rather than normal JavaScript code to construct the actual code that would run.</li>
+</ol>
+<p>Obfuscation is not by itself evil, but it can be used to try to hide an evil intent</p>
+<p><strong><em>Popular Javascript Obfuscating/Minifying/Compressing tools</em></strong></p>
+<ul>
+<li><a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a></li>
+<li><a href="https://github.com/mishoo/UglifyJS">UglifyJS</a></li>
+<li><a href="https://jscrambler.com/">Jscrambler</a></li>
+<li><a href="http://www.jasob.com/">Jasob</a></li>
+<li><a href="http://www.javascriptobfuscator.com/">Free Javascript Obfuscator</a></li>
+<li><a href="http://www.daftlogic.com/projects-online-javascript-obfuscator.htm">Online Obfuscator</a></li>
+</ul>
+<h2 id="comments"><a href="#comments" class="phenomic-HeadingAnchor">#</a>Comments</h2>
+<p><strong><a href="#9" title="2013-07-16 04:05:04">Panda Fishing cheat</a>:</strong> <strong>Panda Fishing cheat...</strong> It's hard to come by well-informed people for this topic, but you seem like you know what you're talking about! Thanks...</p>
+]]></description><link>https://blog.asankan.info/posts/20121022-javascript-obfuscation/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20121022-javascript-obfuscation/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Mon, 22 Oct 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[Building large scale JavaScript web applications with BoilerplateJS..]]></title><description><![CDATA[<h1 id="building-large-scale-javascript-web-applications-with-boilerplatejs"><a href="#building-large-scale-javascript-web-applications-with-boilerplatejs" class="phenomic-HeadingAnchor">#</a>Building large scale JavaScript web applications with BoilerplateJS..</h1>
+<p>JavaScript is now a highly demanded and popular language among developers. Because it is a lightweight, interpreted, object-oriented and cross-platform scripting language. Many libraries, frameworks and APIs have now been developed by many parties to address certain pain points. So the usage of JavaScript has now been extended from simple popups, alerts and data validations to large scale product suites.</p>
+<p>Though there are enough JavaScript resources (libraries, frameworks and APIs), it is still a pain point to develop a large scale product suite where the advance programming concepts/standards like object orientation, modularity and design patterns have to be followed. So the requirement of a reference architecture was there.</p>
+<p><img src="http://1.bp.blogspot.com/-V4epznco8IA/UDsRfZZG4gI/AAAAAAAAAqM/6ET9IoBprdI/s1600/logo+(1).jpg"></p>
+<p><a href="http://www.boilerplatejs.org/">BoilerplateJS</a> is a reference architecture which defines architectural best practices to address the above pain points. It is a collection of product engineering patterns and some solid industry-leading JavaScript libraries. And the cool thing is you don't have to stick only with these integrated libraries, You can use your preferred libraries. </p>
+<p>As an overview <a href="http://www.boilerplatejs.org/">BoilerplateJS</a> provides following features  </p>
+<ul>
+<li>Well defined solution structure</li>
+<li>Easy dependency management</li>
+<li>Support for defining modules and pluggable UI components</li>
+<li>Event driven messaging</li>
+<li>Controller routing</li>
+<li>Unit testing support</li>
+<li>Localization</li>
+<li>Document generation</li>
+<li>Optimization</li>
+</ul>
+<p>The next main requirement when developing a web application, is the server side integration. But when using <a href="http://www.boilerplatejs.org/">BoilerplateJS</a> you don't have to worry about which server side technology you should use. Because this can be used with any server side technology.</p>
+<p>Final concern of using <a href="http://www.boilerplatejs.org/">BoilerplateJS</a> would be using it for commercial purposes. In this case we don't have to worry at all since this is shipped under the MIT license as an open source project. So without any hesitation now you can start boiling your product with <a href="http://boilerplatejs/">BoilerplateJS</a>.</p>
+<p>Website : <a href="http://www.boilerplatejs.org/">http://www.boilerplatejs.org/</a></p>
+<p>Source code : <a href="https://github.com/ectechno/boilerplatejs">https://github.com/ectechno/boilerplatejs</a></p>
+<p>Live sample : <a href="http://www.boilerplatejs.org/samples/productsuite/index.html#sales">http://www.boilerplatejs.org/samples/productsuite/index.html#sales</a></p>
+]]></description><link>https://blog.asankan.info/posts/20120827-building-large-scale-javascript-web-applications-with-boilerplatejs/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20120827-building-large-scale-javascript-web-applications-with-boilerplatejs/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Mon, 27 Aug 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[6 tips to improve the quality of your code]]></title><description><![CDATA[<h1 id="6-tips-to-improve-the-quality-of-your-code"><a href="#6-tips-to-improve-the-quality-of-your-code" class="phenomic-HeadingAnchor">#</a>6 tips to improve the quality of your code</h1>
+<ul>
+<li>
+<p>Use a proper scripting/programming pattern</p>
+<ul>
+<li>
+<p>Design patterns</p>
+<ul>
+<li>
+<p>Modular pattern</p>
+<ul>
+<li>Further improved with <strong>A</strong>synchronous <strong>M</strong>odule <strong>D</strong>efinition (AMD)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Always use coding conventions</p>
+<ul>
+<li>
+<p>PascalCase</p>
+<ul>
+<li>The first letter of every word in the identifier is in upper case</li>
+</ul>
+</li>
+<li>
+<p>camelCase</p>
+<ul>
+<li>The first letter of first word is in lower case while the first letter of subsequent words are in upper case</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Remove dead code</li>
+<li>Define single responsible methods, So that the method name can be given as it describe the function of the method</li>
+<li>Use a test pattern for your testing classes</li>
+<li>Format your code in a consistent way</li>
+</ul>
+</li>
+</ul>
+]]></description><link>https://blog.asankan.info/posts/20120817-6-tips-to-improve-the-quality-of-your-code/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20120817-6-tips-to-improve-the-quality-of-your-code/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Fri, 17 Aug 2012 00:00:00 GMT</pubDate></item><item><title><![CDATA[How to list and close open ports in linux]]></title><description><![CDATA[<h1 id="how-to-list-and-close-open-ports-in-linux"><a href="#how-to-list-and-close-open-ports-in-linux" class="phenomic-HeadingAnchor">#</a>How to list and close open ports in linux</h1>
+<p>This guide will be demonstrating you how to get the status of the ports and to free up a port which is in use.<br>
+<em>(Note : Following commands were tested on a ubuntu 11.10 installed pc)</em><br>
+_<br>
+_<br>
+List down all listening ports<br>
+<strong>netstat -lpn</strong>  </p>
+<p>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name<br>
+<em>tcp        0      0 0.0.0.0:49027                          0.0.0.0:*                LISTEN      13098/java   </em><br>
+<em>tcp        0      0 127.0.0.1:9160                        0.0.0.0:*                LISTEN      13098/java   </em><br>
+<em>tcp        0      0 127.0.0.1:3306                        0.0.0.0:*                LISTEN      -           </em><br>
+<em>tcp        0      0 0.0.0.0:8080                            0.0.0.0:*                LISTEN      13098/java   </em><br>
+<em>tcp        0      0 0.0.0.0:33395                          0.0.0.0:*                LISTEN      13098/java   </em><br>
+<em>tcp        0      0 127.0.0.1:631                          0.0.0.0:*                LISTEN      -           </em><br>
+<em>tcp        0      0 127.0.0.1:7000                        0.0.0.0:*                LISTEN      13098/java </em>  </p>
+<p>Use grep for filtering out the 8080 port.  </p>
+<p>You can use following command:<br>
+<strong>netstat -lpn | grep 8080</strong>  </p>
+<p>You'll get output something like this  </p>
+<p><em>tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      13098/java</em>  </p>
+<p>Here my process id is 13098 and it is the process that is using port 8080  </p>
+<p>Kill the process using following command:<br>
+<strong>sudo kill 13098</strong>  </p>
+<p>Now port 8080 is free.</p>
+]]></description><link>https://blog.asankan.info/posts/20120718-how-to-list-and-close-open-ports-in-linux/</link><guid isPermaLink="true">https://blog.asankan.info/posts/20120718-how-to-list-and-close-open-ports-in-linux/</guid><dc:creator><![CDATA[asankanissanka]]></dc:creator><pubDate>Wed, 18 Jul 2012 00:00:00 GMT</pubDate></item></channel></rss>

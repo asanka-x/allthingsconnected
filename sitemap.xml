@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://blog.asankan.info/404.html</loc> </url>
+<url> <loc>https://blog.asankan.info/about/</loc> </url>
+<url> <loc>https://blog.asankan.info/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20120224-create-a-shortcut-in-ubuntu-11-10/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20120225-install-mobile-partner-on-linux/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20120308-set-up-android-development-environment-on-linux/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20120718-how-to-list-and-close-open-ports-in-linux/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20120817-6-tips-to-improve-the-quality-of-your-code/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20120827-building-large-scale-javascript-web-applications-with-boilerplatejs/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20121022-javascript-obfuscation/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20121102-my-internship-at-99x-technology/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20121211-clean-way-to-install-oracle-jdk-on-ubuntu/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20121213-scalability/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20121213-what-is-cap-theorem-2/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20121231-design-patterns/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20121231-what-is-scrum/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20130116-install-an-external-jar-into-local-maven-repository/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20130123-ci-vs-cd-vs-cd/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20130208-useful-gnulinux-commands/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20130331-41-view-model/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20131115-android-debugging-over-lanwifi/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20150810-get-started-with-aws/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20150810-hybrid-application-life-cycle-management/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20160823-processing-multi-stage-tasks-using-firebase-queue/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20161030-amazon-web-services-101/</loc> </url>
+<url> <loc>https://blog.asankan.info/posts/20170129-brand-product-and-loyalty/</loc> </url>
+</urlset>
